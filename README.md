@@ -10,17 +10,18 @@
 
 # Построим грамматику
 
-* `FORMULA -> (FORMULA)`
-* `FORMULA -> FORMULA & FORMULA`
-* `FORMULA -> FORMULA | FORMULA`
-* `FORMULA -> FORMULA ^ FORMULA`
-* `ARGLIST -> !FORMULA`
-* `FORMULA -> VAR`
-* `VAR -> [a-zA-Z]`
+* `FORMULA -> XOR "|" FORMULA | XOR`
+* `XOR -> AND "^" XOR | AND`
+* `AND -> NEGATION "&" SUBFORMULA | NEGATION`
+* `NEGATION -> "!" SUBFORMULA | SUBFORMULA`
+* `SUBFORMULA -> [a-zA-Z] | "(" FORMULA ")"`
 
 ## Описание 
 
 Нетерминал    | Значение
 ------------- | -------------
-FORMULA  | Логическая формула
-VAR | Имя переменной
+FORMULA  | Логическая формула или XOR
+XOR | Исключающее ИЛИ или AND
+AND | Логическое И или NEGATION
+NEGATION | Отрицание или SUBFORMULA
+SUBFORMULA | Имя переменной или формула в скобках
