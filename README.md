@@ -25,3 +25,29 @@ XOR | Исключающее ИЛИ или AND
 AND | Логическое И или NEGATION
 NEGATION | Отрицание или SUBFORMULA
 SUBFORMULA | Имя переменной или формула в скобках
+
+## LL1 грамматика
+
+* `FORMULA -> XOR FORMULA'`
+* `XOR -> AND XOR'`
+* `AND -> NEGATION AND'`
+* `NEGATION -> "!" SUBFORMULA | SUBFORMULA`
+* `SUBFORMULA -> [a-zA-Z] | "(" FORMULA ")"`
+* `FORMULA' -> "|" FORMULA | ϵ`
+* `XOR' -> "^" XOR | ϵ`
+* `AND' -> "&" SUBFORMULA | ϵ`
+
+## Описание 
+
+Нетерминал    | Значение
+------------- | -------------
+FORMULA  | Логическая формула или XOR
+FORMULA  | Логическая формула или XOR (продолжение)
+XOR | Исключающее ИЛИ или AND
+XOR | Исключающее ИЛИ или AND (продолжение)
+AND | Логическое И или NEGATION
+AND | Логическое И или NEGATION (продолжение)
+NEGATION | Отрицание или SUBFORMULA
+SUBFORMULA | Имя переменной или формула в скобках
+
+
