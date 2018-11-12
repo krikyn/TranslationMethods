@@ -12,7 +12,7 @@
 
 * `FORMULA -> XOR "|" FORMULA | XOR`
 * `XOR -> AND "^" XOR | AND`
-* `AND -> NEGATION "&" SUBFORMULA | NEGATION`
+* `AND -> NEGATION "&" AND | NEGATION`
 * `NEGATION -> "!" SUBFORMULA | SUBFORMULA`
 * `SUBFORMULA -> [a-zA-Z] | "(" FORMULA ")"`
 
@@ -35,7 +35,7 @@ SUBFORMULA | Имя переменной или формула в скобках
 * `SUBFORMULA -> [a-zA-Z] | "(" FORMULA ")"`
 * `FORMULA' -> "|" FORMULA | ϵ`
 * `XOR' -> "^" XOR | ϵ`
-* `AND' -> "&" SUBFORMULA | ϵ`
+* `AND' -> "&" AND | ϵ`
 
 ## Описание 
 
