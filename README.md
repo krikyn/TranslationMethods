@@ -10,9 +10,9 @@
 
 # Построим грамматику
 
-* `FORMULA -> XOR "|" FORMULA | XOR`
-* `XOR -> AND "^" XOR | AND`
-* `AND -> NEGATION "&" AND | NEGATION`
+* `FORMULA -> FORMULA "|" XOR | XOR`
+* `XOR -> XOR "^" AND | AND`
+* `AND -> AND "&" NEGATION | NEGATION`
 * `NEGATION -> "!" SUBFORMULA | SUBFORMULA`
 * `SUBFORMULA -> [a-zA-Z] | "(" FORMULA ")"`
 
@@ -33,9 +33,9 @@ SUBFORMULA | Имя переменной или формула в скобках
 * `AND -> NEGATION AND'`
 * `NEGATION -> "!" SUBFORMULA | SUBFORMULA`
 * `SUBFORMULA -> [a-zA-Z] | "(" FORMULA ")"`
-* `FORMULA' -> "|" FORMULA | ϵ`
-* `XOR' -> "^" XOR | ϵ`
-* `AND' -> "&" AND | ϵ`
+* `FORMULA' -> "|" XOR FORMULA' | ϵ`
+* `XOR' -> "^" AND XOR' | ϵ`
+* `AND' -> "&" NEGATION AND' | ϵ`
 
 ## Описание 
 
